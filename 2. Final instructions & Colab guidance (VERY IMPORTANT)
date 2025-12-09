@@ -1,0 +1,32 @@
+Install deps (Colab):
+
+!pip install -r requirements.txt
+
+
+or create conda env locally.
+
+How to run each script in Colab (do exactly this):
+
+Create a new cell for each script you run.
+
+In that new cell run e.g.:
+
+!python code/generate_spectrum.py
+
+
+Wait result, then run next script in another new cell.
+
+Do not delete previous cells until you finish debugging. This prevents accidental loss of imports/definitions.
+
+Memory guidance:
+
+N=512 is light.
+
+N=1024 is heavier but designed to fit in 8 GB with the sparse/Lanczos approach and extract_top_eigs_abs.
+
+Avoid N > 2048 unless you have more RAM.
+
+If ARPACK fails (no convergence) the scripts automatically fallback to smaller k and continue — you’ll see printed warnings but the script will still produce robust top-eigenvalue diagnostics.
+
+Fixing the stem(..., use_line_collection=True) Matplotlib error: I replaced stem(..., use_line_collection=True) with bar() in generate_softmax_weights.py. That resolves cross-version incompatibilities.
+
