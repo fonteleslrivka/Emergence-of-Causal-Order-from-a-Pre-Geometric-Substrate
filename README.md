@@ -39,6 +39,7 @@ All seeds and system sizes (N = 512, 1024) yield S ≈ 0 within numerical precis
 | ![Phase Behavior and Dependence on Correlation Range](figura 7 beta teste.png) |
  Phase Behavior and Dependence on Correlation Range (β) This plot demonstrates the system’s response to varying the correlation parameter β (log scale). (Blue
 Curve, Left Axis): The dominance ratio (λ1/λ2) remains low for small β (short-range correlations) but exhibits a sharp, exponential growth as β increases,  ndicating a transition to a regime where the first mode absorbs effectively all spectral weight. (Red Dashed Line, Right Axis): The spectral entropy S remains at the numerical floor (≈ 10−12), confirming that the condensed state is a robust attractor of the system’s informational dynamics across a wide range of parameters. This confirms that Informational Causal Condensation is a distinct regime driven by the correlation structure, not an artifact of matrix positivity.
+
 ### 2. Spectral Collapse and Robustness
 
 These figures confirm the mathematical signature of the pre-geometric state:
