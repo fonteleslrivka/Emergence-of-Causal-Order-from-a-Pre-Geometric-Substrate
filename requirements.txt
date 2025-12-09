@@ -7,3 +7,124 @@ dependencies:
   - scipy>=1.11
   - matplotlib>=3.8
   - networkx>=3.2
+
+
+---
+
+# =========================================
+# 📄 ** environment.yml**
+# =========================================
+name: causal-condensation
+channels:
+
+conda-forge
+dependencies:
+
+python=3.10
+
+numpy
+
+scipy
+
+matplotlib
+
+networkx
+
+numba
+
+pandas
+
+pip
+
+pip:
+
+---
+
+# =========================================
+# 📄 **CITATION.cff**
+# =========================================
+cff-version: 1.2.0
+title: "Causal Condensation as a Stable Informational Phase Transition"
+authors:
+
+family-names: "Lemos"
+given-names: "Rebeca"
+version: "1.0.0"
+date-released: "2025-12-09"
+license: "MIT"
+doi: "TO_BE_FILLED_AFTER_ZENODO"
+message: "If you use this work, please cite it using the metadata above."
+
+---
+
+# =========================================
+# 📄 **release_notes_v1.0.0.md**
+# =========================================
+Release v1.0.0 — Initial Public Research Release
+Included
+
+Full spectral condensation analysis
+
+Hessian stability demonstrations
+
+All figures and data used in the paper
+
+Complete reproducible pipelines
+
+LaTeX source for publication
+
+CITATION metadata
+
+Environment files
+
+Scientific Highlights
+Observation of robust rank-1 informational condensation.
+
+Zero-entropy spectral collapse.
+
+Pre-geometric causal axis formation.
+
+No emergence of spatial modes or geometric gaps.
+
+---
+
+# =========================================
+# 📄 **7. code/generate_figures.py**
+# =========================================
+
+mport numpy as np
+import matplotlib.pyplot as plt
+from scipy.spatial.distance import pdist, squareform
+from scipy.sparse.linalg import eigsh
+plt.style.use("seaborn-v0_8")
+
+eps = 1e-12
+
+def make_points(N, dim=4, seed=0):
+rng = np.random.default_rng(seed)
+X = rng.normal(size=(N,dim))
+X /= np.linalg.norm(X,axis=1,keepdims=True)
+return X
+
+def make_rho_g(X, beta=1.0):
+D = squareform(pdist(X)).astype(np.float32)
+rho = np.exp(-D/beta)
+rho /= rho.max() + eps
+g = -np.log(rho + eps)
+return rho, g
+
+def fig_spectrum_log512():
+X = make_points(512)
+_, g = make_rho_g(X)
+vals = eigsh(g,k=40,which='LA',return_eigenvectors=False)
+vals = np.sort(np.abs(vals))[::-1]
+plt.semilogy(vals,'o-')
+plt.savefig("paper/figures/fig_spectrum_log512.png")
+
+if name == "main":
+fig_spectrum_log512()
+
+
+
+
+seaborn
