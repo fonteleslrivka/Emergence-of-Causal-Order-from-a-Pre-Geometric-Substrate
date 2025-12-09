@@ -1,4 +1,9 @@
-numpy>=1.26
-scipy>=1.11
-matplotlib>=3.8
-networkx>=3.2
+name: causal-condensation
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - numpy>=1.26
+  - scipy>=1.11
+  - matplotlib>=3.8
+  - networkx>=3.2
