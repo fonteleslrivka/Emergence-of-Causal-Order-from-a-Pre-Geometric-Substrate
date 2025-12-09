@@ -32,7 +32,7 @@ This figure is suggestive of, showing the phenomenon is **parameter-dependent**.
 | ![Phase Behavior: Effect of Correlation Range](fig_gap_hist.png) |
 |:---:| 
 | **Figure 10: Phase Behavior ($\lambda_1 / \lambda_2$ vs $\beta$).** The dominance ratio exhibits a sharp, exponential growth as $\beta$ increases, Suggestive of a clear transition from a disordered phase to the Rank-1 condensed phase. |
-| ![Spectral weight distribution showing perfect Rank-1](fig_softmax_weights) |
+| ![Spectral weight distribution showing perfect Rank-1](fig_softmax_weights.png) |
 The plot of softmax-stabilized weights reveals that the dominant eigenmode (index 0) absorbs the
 entirety of the informational weight (w ≈ 1.0), while all secondary modes are suppressed to zero. This
 distribution mathematically corresponds to a vanishing spectral entropy (S = 0),suggesting that the
