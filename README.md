@@ -48,10 +48,32 @@ These figures confirm the mathematical signature of the pre-geometric state:
 | **Entropy Collapse** |Shows the system's entropy $S$ is at the numerical floor ($\approx 0$) for all runs. | **Suggestive of Maximal Order.** The mathematical signature of complete informational collapse. |
 | **Gap Histogram ($\lambda_4/\lambda_5$)** |Shows that the ratio of secondary eigenvalues clusters tightly around $1.03$. | **Rules out $1+3$ Geometry.** No evidence of 3 distinct spatial modes emerging in the spectrum. |
 
-## 💻 Setup and Usage
+## 💻 Reproducibility
 
-The model is built in Python and relies on standard scientific libraries.
+This repository includes:
 
+fixed random seeds,
+
+deterministic spectral solvers,
+
+detailed appendix with algorithms,
+
+exported figures used in the paper,
+
+and all scripts required for full reproducibility.
+
+The computational pipeline is suitable for:
+
+Google Colab
+
+Standard Linux/MacOS
+
+Zenodo archived environments
+
+Conda-based reproducibility
+
+**##The model is built in Python and relies on standard scientific libraries.
+**
 ### Prerequisites
 
 You need Python 3.x and the following libraries installed:
