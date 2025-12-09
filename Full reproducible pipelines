@@ -1,0 +1,11 @@
+code/ # Full reproducible pipelines
+data/ # Saved eigenvalues and Hessians
+paper/ # LaTeX source + figures
+
+---
+
+## ▶️ Running the Figures (Google Colab)
+Open the notebook and run:
+
+```python
+!python code/generate_figures.py
