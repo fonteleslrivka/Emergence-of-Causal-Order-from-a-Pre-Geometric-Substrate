@@ -48,6 +48,66 @@ These figures confirm the mathematical signature of the pre-geometric state:
 | **Entropy Collapse** |Shows the system's entropy $S$ is at the numerical floor ($\approx 0$) for all runs. | **Suggestive of Maximal Order.** The mathematical signature of complete informational collapse. |
 | **Gap Histogram ($\lambda_4/\lambda_5$)** |Shows that the ratio of secondary eigenvalues clusters tightly around $1.03$. | **Rules out $1+3$ Geometry.** No evidence of 3 distinct spatial modes emerging in the spectrum. |
 
+
+This repository contains code, figures and reproducibility material for the paper:
+
+**Causal Condensation as a Stable Informational Phase Transition: Spectral Collapse and the Emergence of Rank-1 Order in Pre-Geometric Systems.**
+
+## What is here
+- Python scripts that reproduce all figures used in the paper.
+- A lightweight, robust spectral pipeline safe for typical laptops (8 GB RAM).
+- A methodological appendix with algorithms for projected Hessian, stable softmax, and spectral truncation.
+- LaTeX files (`/paper`) ready for Overleaf (place figures in `/figures`).
+
+## Quickstart (Google Colab)
+1. Open a new Colab notebook.
+2. Mount your GitHub or upload this repository.
+3. For each provided script, **paste it into a new cell and execute only that cell** (do not delete previous cells).
+4. Example:
+   ```python
+   # in a single new cell
+   !python code/generate_spectrum.py
+
+If running interactive functions in notebooks, call them from new cells (see the script docstrings).
+
+Memory note: For N <= 1024 and k <= 150 the code was designed to run on 8 GB RAM machines. Careful: increasing N or computing full eigen-decompositions will increase memory/time dramatically.
+
+Files
+
+requirements.txt, environment.yml
+
+/code — python scripts to generate each figure
+
+/figures — saved outputs (png)
+
+/paper — LaTeX files
+
+README.md, LICENSE
+
+Reproducibility
+
+All scripts use fixed seeds by default; change seeds in the command line if you want ensembles.
+
+Implementation uses scipy.sparse.linalg.eigsh for spectral extraction and fallbacks if ARPACK fails.
+
+Contact
+
+Author: Rebeca Lemos — (fonteleslrebecca@proton.me)
+
+---
+
+
+**##environment.yml**
+
+name:causal-condensation channels
+  - conda-forge
+dependencies:
+  - python=3.10
+  - numpy>=1.26
+  - scipy>=1.11
+  - matplotlib>=3.8
+  - networkx>=3.2
+
 ## 💻 Reproducibility
 
 This repository includes:
