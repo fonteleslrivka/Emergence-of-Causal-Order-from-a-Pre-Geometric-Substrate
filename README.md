@@ -36,6 +36,9 @@ This figure is suggestive of, showing the phenomenon is **parameter-dependent**.
 The plot of softmax-stabilized weights reveals that the dominant eigenmode (index 0) absorbs the entirety of the informational weight (w ≈ 1.0), while all secondary modes are suppressed to zero. This distribution mathematically corresponds to a vanishing spectral entropy (S = 0),suggesting that the system has stabilized into a single causal axis with no emergent spatial geometry.
 | ![Spectral entropy](fig_entropy_zero.png) |
 All seeds and system sizes (N = 512, 1024) yield S ≈ 0 within numerical precision. This demonstrates complete condensation of the spectrum into a single mode, marking the system as entering a pre-geometric ordered phase. 
+| ![Phase Behavior and Dependence on Correlation Range](figura 7 beta teste.png) |
+ Phase Behavior and Dependence on Correlation Range (β) This plot demonstrates the system’s response to varying the correlation parameter β (log scale). (Blue
+Curve, Left Axis): The dominance ratio (λ1/λ2) remains low for small β (short-range correlations) but exhibits a sharp, exponential growth as β increases,  ndicating a transition to a regime where the first mode absorbs effectively all spectral weight. (Red Dashed Line, Right Axis): The spectral entropy S remains at the numerical floor (≈ 10−12), confirming that the condensed state is a robust attractor of the system’s informational dynamics across a wide range of parameters. This confirms that Informational Causal Condensation is a distinct regime driven by the correlation structure, not an artifact of matrix positivity.
 ### 2. Spectral Collapse and Robustness
 
 These figures confirm the mathematical signature of the pre-geometric state:
