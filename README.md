@@ -1,2 +1,55 @@
 # Emergence-of-Causal-Order-from-a-Pre-Geometric-Substrate
 Informational Condensation in the Rank-1 Limit: Emergence of Causal Order from a Pre-Geometric Substrate
+# Informational Condensation in the Rank-1 Limit: Emergence of Causal Order from a Pre-Geometric Substrate
+
+[![DOI](https://zenodo.org/badge/DOI_PENDING_2025.svg)](https://github.com/YourGitHubProfile/causal-condensation)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+
+## 📄 Abstract & Overview
+
+This repository contains the source code for the numerical **toy model** demonstrating **Informational Causal Condensation** in pre-geometric regimes. The model investigates the spectral dynamics of high-dimensional correlation systems and confirms the emergence of a stable dominant mode ($H \ge 0$) characterized by the collapse of spectral entropy ($S \approx 0$)
+
+The core finding is that a single informational ordering axis emerges prior to any geometric structure, suggesting that **temporal order precedes spacetime** in fundamental physics.
+
+## 🧪 Model Core & Key Equations
+
+The model operates on a purely informational substrate defined by the pre-metric $g$, derived from the correlation matrix $\rho$:
+
+$$\rho_{ij} = e^{-D_{ij} / \beta} \qquad \text{and} \qquad g = -\log(\rho + \epsilon)$$
+
+The central operational definition of the pre-geometric phase is:
+**Rank-1 Condensation:** The system’s spectral weight concentrates entirely onto the leading eigenvalue ($w_0 \approx 1.0$)[cite: 3753].
+**Stability:** The projected Hessian is non-negative ($H_{\text{proj}} \ge 0$)
+
+## 📈 Numerical Results & Evidence
+
+The following figures demonstrate the structural integrity and parameter dependence of the condensation phenomenon (simulated on $N=512$ to $N=1024$ scales):
+
+### 1. Suggestion of Phase Crossover (The $\beta$ Sweep)
+
+This figure is suggestive of, showing the phenomenon is **parameter-dependent**.
+
+| ![Phase Behavior: Effect of Correlation Range](figura%207%20beta%20teste.png) |
+|:---:|
+| **Figure 10: Phase Behavior ($\lambda_1 / \lambda_2$ vs $\beta$).** The dominance ratio exhibits a sharp, exponential growth as $\beta$ increases, Suggestive of a clear transition from a disordered phase to the Rank-1 condensed phase. |
+
+### 2. Spectral Collapse and Robustness
+
+These figures confirm the mathematical signature of the pre-geometric state:
+
+| Figure | Description | Proof Point |
+| :--- | :--- | :--- |
+| **Log-scale Spectrum** | Shows the steep drop-off of the leading mode ($|\lambda_1|$) followed by a continuous tail[cite: 3232]. | **Suggestive of Rank-1.** No secondary spectral plateau/cluster indicating emergent spatial dimensions. |
+| **Seed Variability (Boxplot)** | Suggestive of the eigenvalue magnitude and the spectral gaps are highly stable across multiple random initial conditions. | **Suggestive of Robustness.** Not an artifact of a single seed. |
+| **Entropy Collapse** |Shows the system's entropy $S$ is at the numerical floor ($\approx 0$) for all runs. | **Suggestive of Maximal Order.** The mathematical signature of complete informational collapse. |
+| **Gap Histogram ($\lambda_4/\lambda_5$)** |Shows that the ratio of secondary eigenvalues clusters tightly around $1.03$. | **Rules out $1+3$ Geometry.** No evidence of 3 distinct spatial modes emerging in the spectrum. |
+
+## 💻 Setup and Usage
+
+The model is built in Python and relies on standard scientific libraries.
+
+### Prerequisites
+
+You need Python 3.x and the following libraries installed:
+```bash
+pip install numpy scipy matplotlib scikit-learn
