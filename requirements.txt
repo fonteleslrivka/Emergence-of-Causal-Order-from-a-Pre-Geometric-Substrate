@@ -1,4 +1,13 @@
-numpy==2.0.2
-scipy==1.16.3
-matplotlib==3.10.0
-pandas==2.2.2
+numpy>=1.23
+scipy>=1.10
+matplotlib>=3.7
+seaborn>=0.12
+networkx>=3.1
+tqdm>=4.64
+
+# optional but recommended
+jupyter
+notebook
+
+# for reproducibility in eigenvalue decomposition stability
+numba>=0.57
