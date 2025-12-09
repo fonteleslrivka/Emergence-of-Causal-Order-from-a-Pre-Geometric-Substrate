@@ -1,0 +1,26 @@
+/figures
+    fig_spectrum_log512.png
+    fig_boxplot_top12.png
+    fig_hessian_eigs.png
+    fig_overlap_zero.png
+    fig_mean_spectrum.png
+    fig_gap_hist.png
+    fig_entropy_zero.png
+    fig_causal_condensation.png
+    fig_pregeo_vs_geo.png
+
+/code
+    generate_spectrum.py
+    generate_hessian.py
+    generate_softmax_weights.py
+    utils.py
+
+/paper
+    main.tex
+    figures.tex
+    references.bib
+
+requirements.txt
+environment.yml
+LICENSE
+README.md
