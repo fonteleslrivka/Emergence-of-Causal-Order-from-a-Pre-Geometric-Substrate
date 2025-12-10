@@ -1,0 +1,81 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.spatial.distance import pdist, squareform
+from scipy.sparse.linalg import eigsh
+
+def run_beta_sweep_von_neumann():
+    print("Iniciando varredura com Entropia de Von Neumann...")
+
+    N = 512
+    d = 3
+    eps = 1e-12
+
+    # Geometria fixa
+    np.random.seed(42)
+    X = np.random.normal(0, 1, (N, d))
+    X = X / np.linalg.norm(X, axis=1, keepdims=True)
+    D = squareform(pdist(X))
+
+    betas = np.logspace(-1, 1.5, 20) 
+
+    ratio_1_2 = []
+    entropy_list = []
+
+    for beta in betas:
+        # 1. Calcula Rho Normalizada (Estado do Sistema)
+        rho = np.exp(-D / beta)
+        rho_norm = rho / np.sum(rho) # Soma 1, como uma probabilidade
+
+        # 2. Métrica g (apenas para calcular a razão de dominância geométrica)
+        g = -np.log(rho_norm + eps)
+        vals_g = np.linalg.eigvalsh(g)
+        vals_g = np.sort(np.abs(vals_g))[::-1]
+        
+        # Razão de Dominância (Baseada em g, conforme sua teoria)
+        ratio = vals_g[0] / (vals_g[1] + eps)
+        ratio_1_2.append(ratio)
+
+        # 3. Entropia de Von Neumann (Baseada em Rho)
+        # S = -Tr(rho log rho) = - sum(lambda_rho * log lambda_rho)
+        # Isso mede a desordem real do estado, imune à escala de g.
+        vals_rho = np.linalg.eigvalsh(rho_norm)
+        # Filtra valores negativos/zero numéricos
+        vals_rho = vals_rho[vals_rho > eps] 
+        
+        S = -np.sum(vals_rho * np.log(vals_rho))
+        entropy_list.append(S)
+
+    # --- PLOTAGEM ---
+    fig, ax1 = plt.subplots(figsize=(8, 6))
+
+    # Eixo Esquerdo: Razão (Azul)
+    color = 'tab:blue'
+    ax1.set_xlabel(r'Correlation Parameter $\beta$')
+    ax1.set_ylabel(r'Dominance Ratio $(\lambda_1/\lambda_2)$', color=color)
+    ax1.plot(betas, ratio_1_2, color=color, marker='o', label=r'$\lambda_1/\lambda_2$')
+    ax1.tick_params(axis='y', labelcolor=color)
+    ax1.set_xscale('log')
+    ax1.grid(True, which="both", ls="-", alpha=0.3)
+
+    # Eixo Direito: Entropia (Vermelho)
+    ax2 = ax1.twinx()
+    color = 'tab:red'
+    ax2.set_ylabel(r'Von Neumann Entropy ($S$)', color=color)
+    
+    ax2.plot(betas, entropy_list, color=color, marker='x', linestyle='--', label='VN Entropy')
+    ax2.tick_params(axis='y', labelcolor=color)
+    # Limite para mostrar desde o zero até o valor máximo (log N)
+    ax2.set_ylim(bottom=0)
+
+    # Legendas
+    lines_1, labels_1 = ax1.get_legend_handles_labels()
+    lines_2, labels_2 = ax2.get_legend_handles_labels()
+    ax1.legend(lines_1 + lines_2, labels_1 + labels_2, loc='center left')
+
+    plt.title('Phase Behavior: Crossover from Disorder to Condensation')
+    fig.tight_layout()
+    plt.savefig('fig_beta_sweep_vn.png', dpi=300)
+    print("Gráfico 'fig_beta_sweep_vn.png' gerado! Agora deve mostrar a transição Alta -> Baixa.")
+
+if __name__ == "__main__":
+    run_beta_sweep_von_neumann()
